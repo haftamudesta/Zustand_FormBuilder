@@ -2,7 +2,7 @@ import { create } from 'zustand'
 
 interface formFields{
         label:string,
-        type:'text'|'number'|'password'|'textarea'|'date'|'file';
+        type:'text'|'number'|'email'|'password'|'textarea'|'date'|'file',
         value:string,
 }
 interface formStoreState{
@@ -13,7 +13,7 @@ interface formStoreState{
         resetForm:()=>void,
 }
 
-export const useFormFields=create<formStoreState>((set)=>({
+export const useFormStore=create<formStoreState>((set)=>({
         formFields:[],
         addField: (field)=>set((state)=>({formFields:[...state.formFields,field]})),
         removeField:(index)=>set((state)=>({formFields:state.formFields.filter((_,i)=>i!==index)})),
